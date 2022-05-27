@@ -1,3 +1,13 @@
+# Videos
+*.mp4
+*.avi
+
+# Meta-data
+*.meta.json
+
+# Saved models
+*.zip
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
