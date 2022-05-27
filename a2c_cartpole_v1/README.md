@@ -2,6 +2,7 @@
 
 Solving the `CartPole_v1` using stable baselines `A2C` agent.
 
+![Alt Text](data/output.gif)
 
 ## Notice
 
