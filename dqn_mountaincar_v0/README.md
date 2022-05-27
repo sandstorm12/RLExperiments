@@ -1,6 +1,8 @@
-# CartPole v1
+# MountainCar v0
 
-Solving the `CartPole-v1` using stable baselines' `A2C` agent.
+Solving the `MountainCar-v0` using stable baselines' `DQN` agent.
+
+The environment is extended to apply reward shaping in order to solve this problem.
 
 ![Alt Text](data/output.gif)
 
