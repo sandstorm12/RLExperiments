@@ -1,4 +1,2 @@
-gym==0.18.3
-tensorflow==1.14.0
+gym==0.2.9
 PyVirtualDisplay==3.0
-stable-baselines==2.10.2

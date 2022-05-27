@@ -2,8 +2,6 @@ import gym
 import numpy as np
 import pyvirtualdisplay
 
-from stable_baselines import DQN
-from stable_baselines.deepq.policies import MlpPolicy
 from stable_baselines.common.vec_env import DummyVecEnv
 from stable_baselines.common.vec_env.vec_video_recorder \
     import VecVideoRecorder
