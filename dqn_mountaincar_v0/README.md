@@ -19,7 +19,6 @@ apt install freeglut-devel
 
 pip install --upgrade pip
 pip install -r requirements.txt
-
 ```
 
 ## Run
