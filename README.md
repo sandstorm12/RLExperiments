@@ -16,7 +16,9 @@ A set of simple problems solved using (D)RL
 
 
 ## Issues and future work
-1. *Nothing so far*
+1. Feature: Implement a custom `DQN` to solve the `MountainCar_v0` environment
+2. Feature: Implement a custom `policy-based` model to solve the `CartPole_v1` environment
+3. Feature: Implement a custom `A2C` model to solve the `CartPole_v1` environment
 
 
 ## Contributors
