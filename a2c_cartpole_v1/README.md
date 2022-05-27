@@ -1,6 +1,6 @@
 # CartPole v1
 
-Solving the `CartPole_v1` using stable baselines `A2C` agent.
+Solving the `CartPole-v1` using stable baselines' `A2C` agent.
 
 ![Alt Text](data/output.gif)
 
