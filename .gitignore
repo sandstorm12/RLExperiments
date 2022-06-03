@@ -2,6 +2,12 @@
 *.mp4
 *.avi
 
+# Temporary outputs
+*/output/*
+
+# Stored models
+*.pth
+
 # Meta-data
 *.meta.json
 
