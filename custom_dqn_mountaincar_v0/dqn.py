@@ -1,4 +1,3 @@
-from cgitb import enable
 import copy
 import torch
 import collections
@@ -82,7 +81,8 @@ class DQN:
             self._average_reward = 0
         else:
             weight = (iteration % period)
-            samples_average_reward = np.mean([sample[2] for sample in samples])
+            samples_average_reward = np.mean(
+                [sample[2] for sample in samples])
             self._average_reward = (
                 self._average_reward * weight + samples_average_reward
             ) / (weight + 1)
@@ -104,16 +104,12 @@ class DQN:
         states_next = torch.tensor(
             np.array([sample[3] for sample in samples])).float()
 
-        q_current = self._network_main(states).gather(1, actions.view(-1, 1)).view(-1)
+        q_current = self._network_main(states).gather(
+            1, actions.view(-1, 1)).view(-1)
         
         q_target = self._network_target(states_next)
-        q_best = (rewards + self._discount_factor * torch.max(q_target, dim=1)[0]).float()
-
-        # print(q_current.shape)
-        # print(rewards)
-        # print(q_best)        
-        # print(q_best - q_current)
-        # print()
+        q_best = (rewards + self._discount_factor *
+            torch.max(q_target, dim=1)[0]).float()
 
         self._network_main.train(q_current.float(), q_best.float())
 
@@ -222,7 +218,7 @@ class DQN:
 if __name__ == "__main__":
     from mountain_car_dense_reward import MountainCarDenseReward
 
-    env = MountainCarDenseReward(debug=True)
+    env = MountainCarDenseReward(debug=False)
 
     dqn = DQN(env)
     dqn.learn(100000)

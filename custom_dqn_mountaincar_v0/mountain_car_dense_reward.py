@@ -35,7 +35,7 @@ class MountainCarDenseReward(gym.Env):
         return obs, reward, done, info
     
     def reset(self):
-        # print("Steps: {} reward: {:.3f}".format(self.steps, self.sum_reward))
+        print("Steps: {} reward: {:.3f}".format(self.steps, self.sum_reward))
         
         self.steps = 0
         self.sum_reward = 0

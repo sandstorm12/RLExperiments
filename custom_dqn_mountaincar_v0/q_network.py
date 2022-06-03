@@ -9,8 +9,6 @@ class QNetwork(nn.Module):
         super().__init__()
 
         self.fc1 = nn.Linear(num_inputs, 256)
-        # self.fc2 = nn.Linear(16, 32)
-        # self.fc3 = nn.Linear(32, 16)
         self.fc4 = nn.Linear(256, num_outputs)
 
         self.criterion = nn.MSELoss()
@@ -18,8 +16,6 @@ class QNetwork(nn.Module):
 
     def forward(self, x):
         x = F.relu(self.fc1(x))
-        # x = F.relu(self.fc2(x))
-        # x = F.relu(self.fc3(x))
         x = self.fc4(x)
 
         return x
