@@ -1,6 +1,6 @@
 # MountainCar v0
 
-Solving the `MountainCar-v0` using a custom Pytorch-based ' `DQN` agent.
+Solving the `MountainCar-v0` using a custom Pytorch-based `DQN` agent.
 
 The environment is extended to apply reward shaping in order to solve this problem.
 
@@ -24,8 +24,8 @@ pip install -r requirements.txt
 OR
 
 ```bash
-docker build -t custom_mountaincar_v0 .
-docker run -it --rm -v $(pwd):/workdir custom_mountaincar_v0 bash
+docker build -t custom_dqn_mountaincar_v0 .
+docker run -it --rm -v $(pwd):/workdir custom_dqn_mountaincar_v0 bash
 ```
 
 ## Run
