@@ -13,7 +13,7 @@ from gym.wrappers.monitoring import video_recorder
 
 
 class DQN:
-    def __init__(self, env: Env, memory_size=10000, discount_factor=.99,
+    def __init__(self, env: Env, memory_size=1000, discount_factor=.99,
             target_network_learning_rate=1e-3):
         self._env = env
 
@@ -53,7 +53,7 @@ class DQN:
         del self._average_reward
 
     def learn(self, num_iterations, batch_size=64,
-            novel_interactions=32):
+            novel_interactions=16):
         self._initialize_training()
 
         bar = tqdm(range(num_iterations))
@@ -65,7 +65,7 @@ class DQN:
             self._report(iteration, samples, bar)
             self._sync_networks()
 
-            if iteration % 10000 == 9999:
+            if iteration % 1000 == 999:
                 self.evaluate(episodes=10)
 
         self._uninitialize_training()

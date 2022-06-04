@@ -26,6 +26,6 @@ class QNetwork(nn.Module):
 
     def train(self, outputs, labels):
         loss = self._criterion(outputs, labels)
-        self._optimizer._zero_grad()
+        self._optimizer.zero_grad()
         loss.backward()
         self._optimizer.step()
