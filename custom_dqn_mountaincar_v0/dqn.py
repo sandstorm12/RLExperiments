@@ -13,8 +13,8 @@ from gym.wrappers.monitoring import video_recorder
 
 
 class DQN:
-    def __init__(self, env: Env, memory_size=1000, discount_factor=.99,
-            target_network_learning_rate=1e-2):
+    def __init__(self, env: Env, memory_size=10000, discount_factor=.99,
+            target_network_learning_rate=1e-3):
         self._env = env
 
         self._network_main = self._initialize_network(self._env)

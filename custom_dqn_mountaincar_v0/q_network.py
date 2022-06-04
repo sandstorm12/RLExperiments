@@ -1,27 +1,31 @@
 import torch.nn as nn
-import torch.nn.functional as F
-
 import torch.optim as optim
+import torch.nn.functional as F
 
 
 class QNetwork(nn.Module):
-    def __init__(self, num_inputs, num_outputs) -> None:
+    def __init__(self, num_inputs, num_outputs,
+            hidden_size=256, learning_rate=1e-3) -> None:
         super().__init__()
 
-        self.fc1 = nn.Linear(num_inputs, 256)
-        self.fc4 = nn.Linear(256, num_outputs)
+        self._initialize_parameters(num_inputs, num_outputs, hidden_size)
 
-        self.criterion = nn.MSELoss()
-        self.optimizer = optim.Adam(self.parameters(), 1e-3)
+        self._criterion = nn.MSELoss()
+        self._optimizer = optim.Adam(self.parameters(), learning_rate)
+
+    def _initialize_parameters(self, num_inputs, num_outputs,
+            hidden_size=256):
+        self._fc1 = nn.Linear(num_inputs, hidden_size)
+        self._fc4 = nn.Linear(hidden_size, num_outputs)
 
     def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = self.fc4(x)
+        x = F.relu(self._fc1(x))
+        x = self._fc4(x)
 
         return x
 
     def train(self, outputs, labels):
-        loss = self.criterion(outputs, labels)
-        self.optimizer.zero_grad()
+        loss = self._criterion(outputs, labels)
+        self._optimizer._zero_grad()
         loss.backward()
-        self.optimizer.step()
+        self._optimizer.step()
