@@ -15,7 +15,7 @@ The requirements are tested using `Python36`
 
 
 ```bash
-apt install -y xvfb
+apt install -y xvfb python-opengl
 
 pip install --upgrade pip
 pip install -r requirements.txt
