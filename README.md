@@ -9,6 +9,7 @@ A set of simple problems solved using (D)RL
 |------|------|
 | [`CartPole-v1` using `A2C`](a2c_cartpole_v1) | <img src="a2c_cartpole_v1/data/output.gif" width="400" /> |
 | [`MountainCar-v0` using `DQN`](dqn_mountaincar_v0) | <img src="dqn_mountaincar_v0/data/output.gif" width="400" /> |
+| [`MountainCar-v0` using a custom Pytorch-based `DQN`](custom_dqn_mountaincar_v0) | <img src="custom_dqn_mountaincar_v0/data/output.gif" width="400" /> |
 
 
 ## Urgent issues and future work
@@ -16,7 +17,7 @@ A set of simple problems solved using (D)RL
 
 
 ## Issues and future work
-1. *Nothing so far*
+1. Feature: Solve `Moon Lander` using a custom agent.
 
 
 ## Contributors
