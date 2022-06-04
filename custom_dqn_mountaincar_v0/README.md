@@ -15,7 +15,7 @@ The requirements are tested using `Python36`
 
 
 ```bash
-apt install freeglut-devel
+apt install -y xvfb
 
 pip install --upgrade pip
 pip install -r requirements.txt
