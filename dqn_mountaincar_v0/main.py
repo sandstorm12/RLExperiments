@@ -51,31 +51,48 @@ class MountainCarDenseReward(gym.Env):
     def close (self):
         self.env.close()
 
-make_env_fn = lambda: MountainCarDenseReward()
-env = DummyVecEnv([make_env_fn]*1)
 
-pyvirtualdisplay.Display(visible=0, size=(1920, 1080)).start()
+def _initialize_env():
+    make_env_fn = lambda: MountainCarDenseReward()
+    env = DummyVecEnv([make_env_fn]*1)
 
-model = DQN(MlpPolicy, env, verbose=1)
-model.learn(total_timesteps=100000)
-model.save("dqn_mountaincar_v0")
-
-model = DQN.load("dqn_mountaincar_v0")
-
-env = VecVideoRecorder(
-    env, "output/", lambda x: True, video_length=600
-)
+    return env
 
 
-for _ in range(10):
-    for i in range(200):
-        action, _states = model.predict(
-            obs if "obs" in locals() else env.reset()
-        )
-        obs, rewards, dones, info = env.step(action)
-        env.render("rgb_array")
+def _train_model(env):
+    model = DQN(MlpPolicy, env, verbose=1)
+    model.learn(total_timesteps=100000)
 
-        if np.any(dones):
-            print("Done --> steps {}".format(i))
+    return model
 
-env.close()
+
+def _test_model(model, env):
+    pyvirtualdisplay.Display(visible=0, size=(1920, 1080)).start()
+
+    env = VecVideoRecorder(
+        env, "output/", lambda x: True, video_length=600
+    )
+
+    for _ in range(10):
+        for i in range(200):
+            action, _states = model.predict(
+                obs if "obs" in locals() else env.reset()
+            )
+            obs, rewards, dones, info = env.step(action)
+            env.render("rgb_array")
+
+            if np.any(dones):
+                print("Done --> steps {}".format(i))
+
+
+if __name__ == "__main__":
+    env = _initialize_env()
+
+    model = _train_model(env)
+
+    model.save("dqn_mountaincar_v0")
+    model = DQN.load("dqn_mountaincar_v0")
+
+    _test_model(model, env)
+
+    env.close()
