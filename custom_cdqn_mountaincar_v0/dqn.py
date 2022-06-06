@@ -13,8 +13,8 @@ from gym.wrappers.monitoring import video_recorder
 
 
 class DQN:
-    def __init__(self, env: Env, memory_size=2000, discount_factor=.99,
-            target_network_learning_rate=1e-4):
+    def __init__(self, env: Env, memory_size=5000, discount_factor=.99,
+            target_network_learning_rate=1e-3):
         self._env = env
 
         self._device = torch.device(
