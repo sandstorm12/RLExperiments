@@ -5,7 +5,7 @@ from mountain_car_dense_reward import MountainCarDenseReward
 
 
 def run():
-    pyvirtualdisplay.Display(visible=0, size=(1920, 1080)).start()
+    pyvirtualdisplay.Display(visible=0, size=(1280, 720)).start()
 
     env = MountainCarDenseReward(debug=1)
 
