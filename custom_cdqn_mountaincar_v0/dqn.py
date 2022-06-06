@@ -2,7 +2,6 @@ import copy
 import torch
 import collections
 import numpy as np
-import pyvirtualdisplay
 
 from tqdm import tqdm
 
@@ -219,13 +218,19 @@ class DQN:
     def predict(self, observation):
         observation = torch.from_numpy(observation).unsqueeze(0)\
             .float().permute(0, 1, 2, 3, 4)
-        action = torch.argmax(self._network_main(observation.to(self._device)), dim=1).item()
+        action = torch.argmax(
+            self._network_main(observation.to(self._device)), dim=1).item()
 
         return action
 
 
 if __name__ == "__main__":
+    import pyvirtualdisplay
+
     from mountain_car_dense_reward import MountainCarDenseReward
+
+
+    pyvirtualdisplay.Display(visible=0, size=(1920, 1080)).start()
 
     env = MountainCarDenseReward(debug=1)
 
