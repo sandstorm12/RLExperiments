@@ -160,7 +160,8 @@ class DQN:
                     self._previous_state).unsqueeze(0)\
                     .float().permute(0, 1, 2, 3, 4)
                 action = torch.argmax(
-                    self._network_main(previous_state_tensor.to(self._device)), dim=1).item()
+                    self._network_main(
+                        previous_state_tensor.to(self._device)), dim=1).item()
 
             state_new, reward, done, _ = \
                 self._env.step(action)

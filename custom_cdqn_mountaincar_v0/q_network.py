@@ -17,14 +17,10 @@ class QNetwork(nn.Module):
 
     def _initialize_parameters(self, num_outputs):
         self.conv1 = nn.Conv3d(1, 32, 3)
-        # self.bnorm1 = nn.BatchNorm2d(32)
         self.conv2 = nn.Conv3d(32, 32, (1, 3, 3))
-        # self.bnorm2 = nn.BatchNorm2d(32)
         self.conv3 = nn.Conv3d(32, 64, (1, 3, 3))
-        # self.bnorm3 = nn.BatchNorm2d(64)
         self.pool = nn.MaxPool3d((1, 3, 3))
         self._fc1 = nn.Linear(3136, 512)
-        # self._fc2 = nn.Linear(256, 128)
         self._fc3 = nn.Linear(512, num_outputs)
 
         summary(self, (1, 3, 224, 224))
@@ -38,7 +34,6 @@ class QNetwork(nn.Module):
         x = self.pool(x)
         x = torch.flatten(x, 1)
         x = F.relu(self._fc1(x))
-        # x = F.relu(self._fc2(x))
         x = self._fc3(x)
 
         return x
