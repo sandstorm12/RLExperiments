@@ -47,6 +47,7 @@ python main.py
 ## Issues and future work
 
 1. Feature: Improve training stability
+2. Bug: As you can see in the demo gif there are some situations of wrong actions; find out why
 
 
 ## Contributors
