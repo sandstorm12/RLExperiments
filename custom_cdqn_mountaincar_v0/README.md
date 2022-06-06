@@ -1,6 +1,8 @@
-# MountainCar v0
+# Convolutional MountainCar v0
 
-Solving the `MountainCar-v0` using a custom Pytorch-based `DQN` agent.
+Solving the `MountainCar-v0` using a custom Pytorch-based `ConvolutionalDQN` agent.
+
+The agent is `only receiving the RBG frames` of the game.
 
 The environment is extended to apply reward shaping in order to solve this problem.
 
@@ -15,7 +17,7 @@ The requirements are tested using `Python36`
 
 
 ```bash
-apt install -y xvfb python-opengl
+apt install -y xvfb python-opengl libglib2.0-0
 
 pip install --upgrade pip
 pip install -r requirements.txt
@@ -24,8 +26,8 @@ pip install -r requirements.txt
 OR
 
 ```bash
-docker build -t custom_dqn_mountaincar_v0 .
-docker run -it --rm -v $(pwd):/workdir custom_dqn_mountaincar_v0 bash
+docker build -t custom_cdqn_mountaincar_v0 .
+docker run -it --rm -v $(pwd):/workdir custom_cdqn_mountaincar_v0 bash
 ```
 
 ## Run
@@ -38,11 +40,14 @@ python main.py
 
 
 ## Urgent issues and future work
+
 1. *Nothing so far*
 
 
 ## Issues and future work
-1. *Nothing so far*
+
+1. Feature: Improve training stability
+2. Bug: As you can see in the demo gif there are some situations of wrong actions; find out why
 
 
 ## Contributors
