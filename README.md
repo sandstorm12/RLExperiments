@@ -30,6 +30,7 @@ A set of simple problems solved using (D)RL
 8. Feature: Add train and test accuracy plots for each project
 9. Feature: Add performance benchmark to all projects
 10. Feature: Solve `MountainCar-v0` without reward-shaping
+11. Feature: Implement `Prioritized Experience Replay (PER)`
 
 
 ## Contributors
