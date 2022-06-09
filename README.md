@@ -11,6 +11,7 @@ A set of simple problems solved using (D)RL
 | [`MountainCar-v0` using `DQN`](dqn_mountaincar_v0) | <img src="dqn_mountaincar_v0/data/output.gif" width="400" /> |
 | [`MountainCar-v0` using a custom `DQN`](custom_dqn_mountaincar_v0) | <img src="custom_dqn_mountaincar_v0/data/output.gif" width="400" /> |
 | [`MountainCar-v0` using a custom `ConvolutionalDQN`](custom_cdqn_mountaincar_v0) | <img src="custom_cdqn_mountaincar_v0/data/output.gif" width="400" /> |
+| [`LunarLander-v2` using a custom `DQN`](custom_dqn_lunarlander_v2) | <img src="custom_dqn_lunarlander_v2/data/output.gif" width="400" /> |
 
 
 ## Urgent issues and future work
