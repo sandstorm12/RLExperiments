@@ -6,7 +6,7 @@ def run():
     env = LunarLander(debug=1)
 
     dqn = DQN(env)
-    dqn.learn(200000)
+    dqn.learn(100000)
 
     dqn.save("./model.pth")
     dqn.load("./model.pth")

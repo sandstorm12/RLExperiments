@@ -16,13 +16,11 @@ class QNetwork(nn.Module):
     def _initialize_parameters(self, num_inputs, num_outputs,
             hidden_size=256):
         self._fc1 = nn.Linear(num_inputs, hidden_size)
-        self._fc2 = nn.Linear(hidden_size, hidden_size)
-        self._fc3 = nn.Linear(hidden_size, num_outputs)
+        self._fc2 = nn.Linear(hidden_size, num_outputs)
 
     def forward(self, x):
         x = F.relu(self._fc1(x))
-        x = F.relu(self._fc2(x))
-        x = self._fc3(x)
+        x = self._fc2(x)
 
         return x
 
