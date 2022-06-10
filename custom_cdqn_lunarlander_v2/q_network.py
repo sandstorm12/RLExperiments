@@ -26,16 +26,6 @@ class QNetwork(nn.Module):
         self._fc2 = nn.Linear(512, 128)
         self._fc3 = nn.Linear(128, num_outputs)
 
-        # self.conv1 = nn.Conv3d(1, 32, 3)
-        # self.conv2 = nn.Conv3d(32, 32, (1, 3, 3))
-        # self.conv3 = nn.Conv3d(32, 64, (1, 3, 3))
-        # self.conv4 = nn.Conv3d(64, 64, (1, 3, 3))
-        # self.conv5 = nn.Conv3d(64, 128, (1, 3, 3))
-        # self.pool = nn.MaxPool3d((1, 2, 2))
-        # self._fc1 = nn.Linear(3200, 1024)
-        # self._fc2 = nn.Linear(1024, 512)
-        # self._fc3 = nn.Linear(512, num_outputs)
-
         summary(self, (1, 3, 224, 224))
 
     def forward(self, x):
@@ -53,21 +43,6 @@ class QNetwork(nn.Module):
         x = F.relu(self._fc1(x))
         x = F.relu(self._fc2(x))
         x = self._fc3(x)
-
-        # x = F.relu(self.conv1(x))
-        # x = self.pool(x)
-        # x = F.relu(self.conv2(x))
-        # x = self.pool(x)
-        # x = F.relu(self.conv3(x))
-        # x = self.pool(x)
-        # x = F.relu(self.conv4(x))
-        # x = self.pool(x)
-        # x = F.relu(self.conv5(x))
-        # x = self.pool(x)
-        # x = torch.flatten(x, 1)
-        # x = F.relu(self._fc1(x))
-        # x = F.relu(self._fc2(x))
-        # x = self._fc3(x)
 
         return x
 

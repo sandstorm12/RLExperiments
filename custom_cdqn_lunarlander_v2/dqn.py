@@ -228,22 +228,3 @@ class DQN:
             self._network_main(observation.to(self._device)), dim=1).item()
 
         return action
-
-
-if __name__ == "__main__":
-    import pyvirtualdisplay
-
-    from lunar_lander import LunarLander
-
-
-    pyvirtualdisplay.Display(visible=0, size=(1280, 720)).start()
-
-    env = LunarLander(debug=1)
-
-    dqn = DQN(env)
-    dqn.learn(50000)
-
-    dqn.save("./model.pth")
-    dqn.load("./model.pth")
-
-    dqn.evaluate(capture_path="./output/output.mp4", episodes=10)
