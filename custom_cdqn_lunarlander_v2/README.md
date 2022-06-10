@@ -1,10 +1,8 @@
-# Convolutional MountainCar v0
+# Convolutional LunarLander v2
 
-Solving the `MountainCar-v0` using a custom Pytorch-based `ConvolutionalDQN` agent.
+Solving the `LunarLander-v2` using a custom Pytorch-based `ConvolutionalDQN` agent.
 
 The agent is `only receiving the RBG frames` of the game.
-
-The environment is extended to apply reward shaping in order to solve this problem.
 
 ![Alt Text](data/output.gif)
 
@@ -26,8 +24,8 @@ pip install -r requirements.txt
 OR
 
 ```bash
-docker build -t custom_cdqn_mountaincar_v0 .
-docker run -it --rm -v $(pwd):/workdir custom_cdqn_mountaincar_v0 bash
+docker build -t custom_cdqn_lunarlander_v2 .
+docker run -it --rm -v $(pwd):/workdir custom_cdqn_lunarlander_v2 bash
 ```
 
 ## Run
@@ -47,8 +45,9 @@ python main.py
 ## Issues and future work
 
 1. Feature: Improve training stability
-2. Bug: As you can see in the demo gif there are some situations of wrong actions; find out why
-3. Feature: Make the decision resolution more by providing the previous frames as temporal dimension, not the future frames with the repeated actions
+2. ~~Bug: As you can see in the demo gif there are some situations of wrong actions; find out why~~
+3. ~~Feature: Make the decision resolution more by providing the previous frames as temporal dimension, not the future frames with the repeated actions~~ (didn't work)
+4. Bug: Training takes longer than what I think is expected (~20hrs)
 
 
 ## Contributors
